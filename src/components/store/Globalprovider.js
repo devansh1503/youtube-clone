@@ -3,8 +3,8 @@ import GlobalObj from './global-objects'
 const defaultvalue = {
     library:[],
     searchItem:"",
-    apikey:"AIzaSyBhR0bnmRRReM-5DVSSwEEhNLxxcDmp9Sg",
-    // apikey:"AIzaSyAtDYQnS2TV127akJ7Sw_2EoKBl-dNSLFA",
+    // apikey:"AIzaSyBhR0bnmRRReM-5DVSSwEEhNLxxcDmp9Sg",
+    apikey:"AIzaSyAtDYQnS2TV127akJ7Sw_2EoKBl-dNSLFA",
     channelId:""
 }
 const globReducer = (state,action) => {

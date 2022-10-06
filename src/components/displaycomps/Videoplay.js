@@ -23,7 +23,9 @@ function Videoplay(props) {
   return (
     <div className='video-play'>
       <div className='left-part'>
-        <iframe src={`https://www.youtube.com/embed/${ctx.currvid.id}`}
+        <iframe 
+          className='if'
+          src={`https://www.youtube.com/embed/${ctx.currvid.id}`}
           width={'800'}
           height={'500'}
           frameBorder="0"
