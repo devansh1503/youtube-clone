@@ -3,7 +3,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
 import GlobalObj from './store/global-objects';
 import { Link } from "react-router-dom";
-function Input() {
+function Input(props) {
   const [searchItem, setSearchItem] = useState('')
   const ctx = useContext(GlobalObj)
   const onChangeHandler = (event) => {
@@ -13,6 +13,7 @@ function Input() {
   const searchString = () => {
     ctx.changeSearchItem(searchItem)
     console.log(ctx.searchItem)
+    props.hideSearch({})
   }
   return (
     <div className='input-comp'>
