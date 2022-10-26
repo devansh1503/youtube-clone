@@ -42,7 +42,7 @@ function Videoplay(props) {
           <h4>Description</h4>
           <p>{ctx.currvid.snippet.description}</p>
         </div>
-        <div>
+        <div className='cmnts'>
           <h3>Comments</h3>
           <Comments></Comments>
         </div>
