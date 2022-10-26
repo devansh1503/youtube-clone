@@ -11,6 +11,7 @@ function Input(props) {
     setSearchItem(event.target.value)
   }
   const searchString = () => {
+    localStorage.setItem('currsearch',searchItem)
     ctx.changeSearchItem(searchItem)
     console.log(ctx.searchItem)
     props.hideSearch({})

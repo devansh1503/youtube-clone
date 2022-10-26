@@ -6,9 +6,10 @@ function Searchpage(props) {
   props.setC(false);
     const[videos, setVideoData] = useState([])
     const ctx = useContext(GlobalObj)
+    const srch = localStorage.getItem('currsearch')
     useEffect(()=>{
       props.setp(30)
-      const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${ctx.searchItem}&key=${ctx.apikey}&maxResults=20`
+      const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${srch}&key=${ctx.apikey}&maxResults=20`
         fetch(url)
         .then(response => response.json())
         .then(data => setVideoData(data.items))
