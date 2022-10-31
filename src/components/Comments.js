@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import CommentTile from './CommentTile'
 import GlobalObj from './store/global-objects'
 
-function Comments() {
+function Comments(props) {
     const ctx = useContext(GlobalObj)
     const[comments, setComments] = useState([])
     var vidid = ctx.currvid.id
@@ -24,6 +24,7 @@ function Comments() {
         <div>
             {comments.map((ele)=>{
                 return <CommentTile 
+                boxcs = {props.boxcs}
                 img={ele.snippet.topLevelComment.snippet.authorProfileImageUrl} 
                 userName={ele.snippet.topLevelComment.snippet.authorDisplayName} 
                 comm={ele.snippet.topLevelComment.snippet.textOriginal}></CommentTile>

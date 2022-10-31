@@ -22,6 +22,11 @@ function App() {
   const [disPopup, setDisPopup] = useState(false)
   const [disCat, setDisCat] = useState(true)
   const [catItem, setCatItem] = useState("")
+  const [lightMode,setLight] = useState(true)
+  if(lightMode){
+    document.body.style.backgroundColor = 'white'
+    document.body.style.color='black'
+  }
   function changeProgress(n){
     setProgress(n)
   }
@@ -46,20 +51,20 @@ function App() {
       <Globalprovider>
         {!loggedIn && <Loginpage loginfunc={loginHandle} />}
         {loggedIn && <div className="App">
-          <Header hidesidebar={hidesidebar}></Header>
+          <Header hidesidebar={hidesidebar} ltm={lightMode}></Header>
           <LoadingBar color='red' height={3} progress={progress}/>
           <div className='mainbody'>
-            {disSidebar && <Sidebar />}
-            {!disSidebar && <HiddenSidebar />}
+            {disSidebar && <Sidebar ltm={lightMode} />}
+            {!disSidebar && <HiddenSidebar ltm={lightMode} />}
             <div>
-            {disCat && <Categories setCatItem={setCatItem}/>}
+            {disCat && <Categories setCatItem={setCatItem} ltm={lightMode}/>}
             <Routes>
-              <Route path='/' element={<Home setp={changeProgress} setC={setDisCat}/>}/>
-              <Route path='/category' element={<CatPage setC={setDisCat} catitem={catItem}></CatPage>}/>
-              <Route path='/search' element={<Searchpage setp={changeProgress} setC={setDisCat}/>}/>
-              <Route path='/library' element={<Mylibrary setC={setDisCat}/>}/>
-              <Route path='/watch' element={<Videoplay setC={setDisCat}/>}/>
-              <Route path='/channel' element={<Channelpage setC={setDisCat}/>}/>
+              <Route path='/' element={<Home ltm={lightMode} setp={changeProgress} setC={setDisCat}/>}/>
+              <Route path='/category' element={<CatPage ltm={lightMode} setC={setDisCat} catitem={catItem}></CatPage>}/>
+              <Route path='/search' element={<Searchpage ltm={lightMode} setp={changeProgress} setC={setDisCat}/>}/>
+              <Route path='/library' element={<Mylibrary ltm={lightMode} setC={setDisCat}/>}/>
+              <Route path='/watch' element={<Videoplay ltm={lightMode} setC={setDisCat}/>}/>
+              <Route path='/channel' element={<Channelpage ltm={lightMode} setC={setDisCat}/>}/>
             </Routes>
             </div>
           </div>

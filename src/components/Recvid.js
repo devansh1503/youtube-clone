@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import RecTile from './RecTile'
 import GlobalObj from './store/global-objects'
 
-function Recvid() {
+function Recvid(props) {
   const ctx = useContext(GlobalObj)
   const [recvids, setRecVid] = useState([])
   useEffect(() => {
@@ -23,6 +23,7 @@ function Recvid() {
         return true;
       }).map((element) => {
         return <RecTile
+          lightcs={props.lightcs}
           tiletyle={element.id.kind}
           img={element.snippet.thumbnails.high.url}
           title={element.snippet.title}

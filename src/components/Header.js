@@ -7,12 +7,19 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 
 function Header(props) {
-    const [Style,setStyle] = useState({})
-    const clickHandle = () =>{
-        setStyle({display:'flex'})
+    const [Style, setStyle] = useState({})
+    const clickHandle = () => {
+        setStyle({ display: 'flex' })
+    }
+    let lightcss = {}
+    if (props.ltm) {
+        lightcss = {
+            backgroundColor: "rgb(242,242,242)",
+            color: "black"
+        }
     }
     return (
-        <div className='header'>
+        <div className='header' style={lightcss}>
             <div className='header-left'>
                 <div onClick={props.hidesidebar}>
                     <MenuIcon />
@@ -21,7 +28,7 @@ function Header(props) {
                 <h2>YouTube</h2>
             </div>
             <div className='header-center' style={Style}>
-                <Input hideSearch={setStyle}/>
+                <Input ltm={props.ltm} hideSearch={setStyle} />
             </div>
 
             <div className='header-right'>

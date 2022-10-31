@@ -6,6 +6,18 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ShareIcon from '@mui/icons-material/Share';
 function Videoplay(props) {
+  let lightcss = {}
+  let boxcss = {}
+  if (props.ltm) {
+    lightcss = {
+      backgroundColor: "white",
+      color: "black"
+    }
+    boxcss = {
+      backgroundColor: "rgb(242,242,242)",
+      color: "black"
+    }
+  }
   props.setC(false);
   const ctx = useContext(GlobalObj)
   console.log(ctx.currvid)
@@ -21,7 +33,7 @@ function Videoplay(props) {
     likes = likes+"M";
   }
   return (
-    <div className='video-play'>
+    <div className='video-play' style={lightcss}>
       <div className='left-part'>
         <iframe 
           className='if'
@@ -30,26 +42,26 @@ function Videoplay(props) {
           height={'500'}
           frameBorder="0"
           allow="fullscreen"></iframe>
-        <h2>{ctx.currvid.snippet.title}</h2>
-        <h4>{ctx.currvid.statistics.viewCount} Views</h4>
+        <h2 style={lightcss}>{ctx.currvid.snippet.title}</h2>
+        <h4 style={lightcss}>{ctx.currvid.statistics.viewCount} Views</h4>
         <div className='info-video'>
-          <p>{ctx.currvid.snippet.channelTitle}</p>
-          <button className='like'><ThumbUpAltIcon></ThumbUpAltIcon> {likes}</button>
-          <button className='like'><ThumbDownIcon></ThumbDownIcon> Dislike</button>
-          <button className='like'><ShareIcon></ShareIcon> Share</button>
+          <p style={lightcss}>{ctx.currvid.snippet.channelTitle}</p>
+          <button style={boxcss} className='like'><ThumbUpAltIcon></ThumbUpAltIcon> {likes}</button>
+          <button style={boxcss} className='like'><ThumbDownIcon></ThumbDownIcon> Dislike</button>
+          <button style={boxcss} className='like'><ShareIcon></ShareIcon> Share</button>
         </div>
-        <div className='des-box'>
-          <h4>Description</h4>
-          <p>{ctx.currvid.snippet.description}</p>
+        <div className='des-box' style={boxcss}>
+          <h4 style={boxcss}>Description</h4>
+          <p style={boxcss}>{ctx.currvid.snippet.description}</p>
         </div>
         <div className='cmnts'>
-          <h3>Comments</h3>
-          <Comments></Comments>
+          <h3 style={lightcss}>Comments</h3>
+          <Comments boxcs={boxcss}></Comments>
         </div>
       </div>
 
       <div className='right-part'>
-        <Recvid />
+        <Recvid lightcs={lightcss} />
       </div>
     </div>
   )

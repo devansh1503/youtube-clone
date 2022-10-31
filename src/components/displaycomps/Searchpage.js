@@ -3,6 +3,13 @@ import SearchTile from '../SearchTile'
 import GlobalObj from '../store/global-objects'
 
 function Searchpage(props) {
+  let lightcss = {}
+  if (props.ltm) {
+    lightcss = {
+      backgroundColor: "white",
+      color: "black"
+    }
+  }
   props.setC(false);
     const[videos, setVideoData] = useState([])
     const ctx = useContext(GlobalObj)
@@ -18,9 +25,10 @@ function Searchpage(props) {
         console.log("Fetching search data")
       },[ctx.searchItem])
   return (
-    <div className='head-search'>
+    <div className='head-search' style={lightcss}>
       {videos.map((element) => {
         return <SearchTile 
+        ltm = {props.ltm}
         tiletype={element.id.kind}
         img={element.snippet.thumbnails.high.url} 
         title={element.snippet.title} 

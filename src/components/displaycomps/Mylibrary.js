@@ -5,6 +5,13 @@ import Snackbar from '@mui/material/Snackbar';
 import { useState } from 'react';
 
 function Mylibrary(props) {
+  let lightcss = {}
+  if (props.ltm) {
+    lightcss = {
+      backgroundColor: "white",
+      color: "black"
+    }
+  }
   props.setC(false);
   const ctx = useContext(GlobalObj)
   const[open,setOpen] = useState(false)
@@ -15,10 +22,11 @@ function Mylibrary(props) {
     return <div className='library-style'><div className='libempty'>Library is empty</div></div>
   }
   return (
-    <div className='library-style'>
-      {ctx.library.length === 0 && <div className='libempty'>Library is empty</div>}
+    <div className='library-style' style={lightcss}>
+      {ctx.library.length === 0 && <div className='libempty' style={lightcss}>Library is empty</div>}
       {ctx.library.map((ele) => {
         return <Cardtile
+          ltm={props.ltm}
           img={ele.url}
           title={ele.title}
           channel={ele.channel}

@@ -17,12 +17,19 @@ function SearchTile(props) {
     ctx.changeCurrVideo(videoinfo)
     console.log(videoinfo)
   }
+  let lightcss = {}
+  if (props.ltm) {
+    lightcss = {
+      backgroundColor: "white",
+      color: "black"
+    }
+  }
 
   return (
     <Link to="/watch" className='search-tile' onClick={onclickhandle}>
       <img src={props.img} className={(typeofprop === "youtube#channel" && "channel-img") || "video-img"}></img>
       <div className='info-search'>
-        <h3>{props.title}</h3>
+        <h3 style={lightcss}>{props.title}</h3>
         <p>{props.info}</p>
         <p>{props.channel}</p>
         <p>{props.des.slice(0,75)}</p>

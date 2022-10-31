@@ -22,7 +22,7 @@ function RecTile(props) {
     <Link to="/watch" className='rec-tile' onClick={onclickhandle}>
       <img src={props.img} className="rec-img"></img>
       <div className='info-search'>
-        <h4>{props.title.slice(0,47)}</h4>
+        <h4 style={props.lightcs}>{props.title.slice(0,47)}</h4>
         <p>{props.info}</p>
         <p>{props.channel}</p>
         <p>{props.des.slice(0,75)}</p>
