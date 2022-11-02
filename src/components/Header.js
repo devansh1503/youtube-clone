@@ -5,6 +5,8 @@ import VideoCallIcon from '@mui/icons-material/VideoCall';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
+import NightlightIcon from '@mui/icons-material/Nightlight';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
 
 function Header(props) {
     const [Style, setStyle] = useState({})
@@ -35,6 +37,8 @@ function Header(props) {
                 <VideoCallIcon />
                 <NotificationsIcon />
                 <AccountCircleIcon />
+                {props.ltm && <NightlightIcon onClick={()=>{props.setltm(false)}} />}
+                {!props.ltm && <WbSunnyIcon onClick={()=>{props.setltm(true)}}/>}
             </div>
             <div className='res-search' onClick={clickHandle}>
                 <SearchIcon />
