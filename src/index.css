@@ -229,6 +229,8 @@ code {
 /* SEARCH */
 .head-search{
   padding: 20px 40px;
+  width: 100vw;
+  height: 100%;
 }
 .search-tile{
   text-decoration: none;
