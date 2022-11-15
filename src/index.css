@@ -435,9 +435,6 @@ code {
   }
 }
 @media only screen and (max-width: 600px) {
-  *{
-    width: 100vw;
-  }
   body{
     position: relative;
     z-index: 2;
@@ -481,9 +478,6 @@ code {
   }
   .cat{
     width: 100vw;
-  }
-  .cat ul{
-    width: fit-content;
     overflow-x: scroll;
   }
   .listItem3{
