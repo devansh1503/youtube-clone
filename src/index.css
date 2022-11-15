@@ -435,9 +435,15 @@ code {
   }
 }
 @media only screen and (max-width: 600px) {
+  *{
+    width: 100vw;
+  }
   body{
     position: relative;
     z-index: 2;
+  }
+  .header{
+    position: sticky;
   }
   .header-center{
     display: none;
@@ -463,10 +469,10 @@ code {
   }
   .hiddenside{
     z-index: 1000;
-    position: absolute;
-    top: 20;
+    position: fixed;
+    top: 56px;
     left: 0;
-    width: 16%;
+    width: fit-content;
     display: flex;
   }
   .card{
@@ -475,6 +481,9 @@ code {
   }
   .cat{
     width: 100vw;
+  }
+  .cat ul{
+    width: fit-content;
     overflow-x: scroll;
   }
   .listItem3{
@@ -482,11 +491,12 @@ code {
     display: inline;
   }
   .video-play{
+    width: 100vw;
     display: block;
     padding: 0;
   }
   .left-part{
-    width: 100%;
+    width: 100vw;
   }
   .left-part h2{
     margin-left: 10px;

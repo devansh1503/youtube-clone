@@ -23,10 +23,13 @@ function App() {
   const [disCat, setDisCat] = useState(true)
   const [catItem, setCatItem] = useState("")
   const [lightMode, setLight] = useState(true)
-  // if (lightMode) {
-  //   document.body.style.backgroundColor = 'white'
-  //   document.body.style.color = 'black'
-  // }
+  if (lightMode) {
+     document.body.style.backgroundColor = 'white'
+     document.body.style.color = 'black'
+  }
+  else{
+    document.body.style.backgroundColor = 'rgb(24,24,24)'
+  }
   function changeProgress(n) {
     setProgress(n)
   }
