@@ -58,7 +58,7 @@ function App() {
           <LoadingBar color='red' height={3} progress={progress} />
           <div className='mainbody'>
             {disSidebar && <Sidebar ltm={lightMode} />}
-            {!disSidebar && <HiddenSidebar ltm={lightMode} />}
+            {!disSidebar && <HiddenSidebar setltm={setLight} ltm={lightMode} />}
             <div>
               {disCat && <Categories setCatItem={setCatItem} ltm={lightMode} />}
               <Routes>
