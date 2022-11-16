@@ -10,8 +10,10 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 
 function Header(props) {
     const [Style, setStyle] = useState({})
+    const [resstyle, setres] = useState({})
     const clickHandle = () => {
         setStyle({ display: 'flex' })
+        setres({display:'none'})
     }
     let lightcss = {}
     if (props.ltm) {
@@ -22,7 +24,7 @@ function Header(props) {
     }
     return (
         <div className='header' style={lightcss}>
-            <div className='header-left'>
+            <div className='header-left' style={resstyle}>
                 <div onClick={props.hidesidebar}>
                     <MenuIcon />
                 </div>
@@ -30,7 +32,7 @@ function Header(props) {
                 <h2>YouTube</h2>
             </div>
             <div className='header-center' style={Style}>
-                <Input ltm={props.ltm} hideSearch={setStyle} />
+                <Input ltm={props.ltm} hideSearch={setStyle} disres={setres} />
             </div>
 
             <div className='header-right'>
@@ -40,7 +42,7 @@ function Header(props) {
                 {props.ltm && <NightlightIcon onClick={()=>{props.setltm(false)}} />}
                 {!props.ltm && <WbSunnyIcon onClick={()=>{props.setltm(true)}}/>}
             </div>
-            <div className='res-search' onClick={clickHandle}>
+            <div style={resstyle} className='res-search' onClick={clickHandle}>
                 <SearchIcon />
             </div>
         </div>

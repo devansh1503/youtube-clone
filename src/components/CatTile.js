@@ -6,6 +6,13 @@ import { useState } from 'react';
 
 function CatTile(props) {
     const ctx = useContext(GlobalObj)
+    let lightcss = {}
+    if (props.ltm) {
+        lightcss = {
+            backgroundColor: "white",
+            color: "black"
+        }
+    }
     const [videoinfo, setVideoinfo] = useState({})
     useEffect(
         () => {
@@ -36,7 +43,7 @@ function CatTile(props) {
     }
     return (
         <div className='card'>
-            <Link to="/watch" onClick={handleClick} className="card">
+            <Link to="/watch" onClick={handleClick} className="card" style={lightcss}>
                 <img src={props.img}></img>
                 <div className='info'>
                     <img className='profile-pic'></img>

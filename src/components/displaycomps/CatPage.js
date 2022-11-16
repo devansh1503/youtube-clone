@@ -11,6 +11,13 @@ function CatPage(props) {
     function handleClose() {
         setOpen(false)
     }
+    let lightcss = {}
+    if (props.ltm) {
+        lightcss = {
+            backgroundColor: "white",
+            color: "black"
+        }
+    }
     props.setC(true)
     useEffect(() => {
         const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${props.catitem}&key=${ctx.apikey}&maxResults=40`
@@ -19,15 +26,16 @@ function CatPage(props) {
             .then(data => setVideoData(data.items))
     }, [props.catitem])
     return (
-        <div className='catPagemain'>
+        <div className='catPagemain' style={lightcss}>
             {videoData.map((element) => {
                 return <CatTile
+                    ltm= {props.ltm}
                     img={element.snippet.thumbnails.high.url}
                     title={element.snippet.title}
                     channel={element.snippet.channelTitle}
                     stats={""}
                     eledata={element}
-                    openSnack = {setOpen}
+                    openSnack={setOpen}
                     id={element.id.videoId}
                 />
             })}

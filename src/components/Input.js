@@ -15,6 +15,7 @@ function Input(props) {
     ctx.changeSearchItem(searchItem)
     console.log(ctx.searchItem)
     props.hideSearch({})
+    props.disres({})
   }
   let lightcss={}
   if(props.ltm){

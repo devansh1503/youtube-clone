@@ -477,6 +477,7 @@ code {
     width: 85vw;
   }
   .cat{
+    display: none;
     width: 100vw;
     overflow-x: scroll;
   }
@@ -523,6 +524,9 @@ code {
   .head-search{
     padding: 0;
     width: 100vw;
+  }
+  .inp-search{
+    width: 70vw;
   }
   .search-tile{
     display: block;
