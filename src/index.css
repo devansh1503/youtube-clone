@@ -52,6 +52,7 @@ code {
 .inp-search{
   border: none;
   padding: 7px 7px ;
+  padding-left: 14px;
   width: 35vw;
   height: 40px;
   font-family: Roboto,Noto,sans-serif;
@@ -60,6 +61,7 @@ code {
   line-height: 24px;
   background-color: rgb(18,18,18);
   color: rgb(135,135,135);
+  border-radius: 25px;
 }
 .input-comp{
   display: flex;
@@ -76,6 +78,7 @@ code {
   display: flex;
   align-items: center;
   cursor: pointer;
+  border-radius: 25px;
 }
 .voice-icon{
   margin: 5px;
@@ -207,9 +210,11 @@ code {
   color: white;
   cursor: pointer;
   margin: 10px 10px 20px 0px;
+  transition: all 0.4s ease-in-out;
 }
 .card img{
   width: 100%;
+  border-radius: 15px;
 }
 .card p{
   color: rgb(116, 114, 114);
