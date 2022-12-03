@@ -7,6 +7,8 @@ import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import LiveTvIcon from '@mui/icons-material/LiveTv';
 import SchoolIcon from '@mui/icons-material/School';
+import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import { Link } from "react-router-dom";
 function Sidebar(props) {
   let lightcss = {}
@@ -28,13 +30,13 @@ function Sidebar(props) {
                 <ExploreIcon/>
                 <Link style={lightcss} to="/library" className='homebtn'>Library</Link>
             </li>
-            <li className='listItem' style={lightcss}>
+            <li className='listItem' style={lightcss} onClick={()=>{props.setCatItem("shorts")}}>
                 <MovieIcon/>
-                <Link style={lightcss} to="/library" className='homebtn'>Shorts</Link>
+                <Link style={lightcss} to="/category" className='homebtn'>Shorts</Link>
             </li>
-            <li className='listItem' style={lightcss}>
-                <SubscriptionsIcon/>
-                <Link style={lightcss} to="/library" className='homebtn'>Subscriptions</Link>
+            <li className='listItem' style={lightcss} onClick={()=>{props.setCatItem("weeknd, kendrick lamar, doja cat, dua lipa, pritam, hindi songs, english songs, justin beiber")}}>
+                <MusicNoteIcon/>
+                <Link style={lightcss} to="/category" className='homebtn'>Music</Link>
             </li>
         </ul>
       </div>
@@ -42,21 +44,25 @@ function Sidebar(props) {
       <div className='route-ele'>
         <p>EXPLORE</p>
         <ul>
-            <li className='listItem' style={lightcss}>
+            <li className='listItem' style={lightcss} onClick={()=>{props.setCatItem("Hollywood Movies")}}>
                 <LocalMoviesIcon/>
-                Movies
+                <Link style={lightcss} to="/category" className='homebtn'>Movies</Link>
             </li>
-            <li className='listItem' style={lightcss}>
+            <li className='listItem' style={lightcss} onClick={()=>{props.setCatItem("Gaming mortal 8bit thug valorant gta")}}>
                 <SportsEsportsIcon/>
-                Gaming
+                <Link style={lightcss} to="/category" className='homebtn'>Gaming</Link>
             </li>
-            <li className='listItem' style={lightcss}>
+            <li className='listItem' style={lightcss} onClick={()=>{props.setCatItem("currently live")}}>
                 <LiveTvIcon/>
-                Live
+                <Link style={lightcss} to="/category" className='homebtn'>Live</Link>
             </li>
-            <li className='listItem' style={lightcss}>
+            <li className='listItem' style={lightcss} onClick={()=>{props.setCatItem("Learning education studies exams")}}>
                 <SchoolIcon/>
-                Learning
+                <Link style={lightcss} to="/category" className='homebtn'>Learning</Link>
+            </li>
+            <li className='listItem' style={lightcss} onClick={()=>{props.setCatItem("saiman says, carryminati, ashish ch, bb ki vines, dank rishu, comedy")}}>
+                <TheaterComedyIcon/>
+                <Link style={lightcss} to="/category" className='homebtn'>Comedy</Link>
             </li>
         </ul>
 

@@ -3,9 +3,10 @@ import GlobalObj from './global-objects'
 const defaultvalue = {
     library:[],
     searchItem:"",
-    apikey:"AIzaSyBhR0bnmRRReM-5DVSSwEEhNLxxcDmp9Sg",
-    // apikey:"AIzaSyAtDYQnS2TV127akJ7Sw_2EoKBl-dNSLFA",
-    channelId:""
+    // apikey:"AIzaSyBhR0bnmRRReM-5DVSSwEEhNLxxcDmp9Sg",
+    apikey:"AIzaSyAtDYQnS2TV127akJ7Sw_2EoKBl-dNSLFA",
+    channelId:"",
+    currChannel:{}
 }
 const globReducer = (state,action) => {
     if(action.type === "ADD"){
@@ -45,7 +46,7 @@ const globReducer = (state,action) => {
     if(action.type === "CHANNEL"){
         const newchannel = action.item
         return{
-            channelId:newchannel
+            currChannel:newchannel
         }
     }
     return defaultvalue
@@ -74,6 +75,7 @@ function Globalprovider(props) {
         currvid:globstate.currvid,
         apikey:defaultvalue.apikey,
         channelId:globstate.channelId,
+        currChannel:globstate.currChannel,
         addToLib: addItemHandle,
         removeFromLib: removeItemHandle,
         changeSearchItem: changeSearchHandle,

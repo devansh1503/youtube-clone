@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import Channelupper from '../Channelupper'
 import ChannelVid from '../ChannelVid'
@@ -5,21 +6,21 @@ import GlobalObj from '../store/global-objects'
 
 function Channelpage() {
   const ctx = useContext(GlobalObj)
-  const [channeldata, setChannel] = useState({})
-  useEffect(() => {
-    fetch(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=UCV6qn6kKTkKID03Adnfv3GQ&key=${ctx.apikey}`)
-      .then(response => response.json())
-      .then(data => setChannel(data.items[0]))
-  }, [])
-  console.log(channeldata)
+  const data = ctx.currChannel
+  const playlistid = ctx.currChannel.contentDetails.relatedPlaylists.uploads
+  console.log(data)
+
   return (
-    <div>
+    <div className='channelpage'>
+      <img src={ctx.currChannel.snippet.thumbnails.high.url} className="channel-img"></img>
       <div>
-        <Channelupper data={channeldata} />
+        <h2>{ctx.currChannel.snippet.title}</h2>
+        <p>{ctx.currChannel.statistics.subscriberCount} Subscribers</p>
+        <p>{ctx.currChannel.snippet.description}</p>
       </div>
-      <div className='video'>
-        <ChannelVid id={channeldata.contentDetails.relatedPlaylists.uploads}></ChannelVid>
-      </div> 
+      {/* <div className='video'>
+        <ChannelVid id={playlistid}></ChannelVid>
+      </div> */}
     </div>
   )
 }

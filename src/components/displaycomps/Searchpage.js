@@ -35,7 +35,7 @@ function Searchpage(props) {
         info={element.snippet.publishedAt} 
         channel={element.snippet.channelTitle} 
         des={element.snippet.description}
-        id={element.id.videoId}></SearchTile>
+        id={element.id.kind==="youtube#channel" ? element.id.channelId : element.id.videoId}></SearchTile>
       })}
     </div>
   )

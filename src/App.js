@@ -57,7 +57,7 @@ function App() {
           <Header hidesidebar={hidesidebar} ltm={lightMode} setltm={setLight}></Header>
           <LoadingBar color='red' height={3} progress={progress} />
           <div className='mainbody'>
-            {disSidebar && <Sidebar ltm={lightMode} />}
+            {disSidebar && <Sidebar ltm={lightMode} setCatItem={setCatItem} />}
             {!disSidebar && <HiddenSidebar setltm={setLight} ltm={lightMode} />}
             <div>
               {disCat && <Categories setCatItem={setCatItem} ltm={lightMode} />}

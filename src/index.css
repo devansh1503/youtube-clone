@@ -432,6 +432,19 @@ code {
   display: flex;
   flex-wrap: wrap;
 }
+/* CHANNEL PAGE */
+.chanelpage{
+  margin: 20px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.channelpage *{
+  margin: 10px;
+}
+.chanelpage p{
+  width: 70%;
+  font-size: 24px;
+}
 @media only screen and (max-height: 500px){
   .if{
     position:fixed;
