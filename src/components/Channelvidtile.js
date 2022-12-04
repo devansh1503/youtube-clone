@@ -29,6 +29,7 @@ function Channelvidtile(props) {
     }
     function handleClick() {
       ctx.changeCurrVideo(props.eledata)
+      console.log(props.eledata)
     }
     return (
       <div className='card'>

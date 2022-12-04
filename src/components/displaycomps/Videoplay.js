@@ -23,7 +23,17 @@ function Videoplay(props) {
   console.log(ctx.currvid)
   window.scrollTo(0, 0)
 
-  var likes = ctx.currvid.statistics.likeCount
+  var likes = 0
+  var views = 0
+  var id = (ctx.currvid.kind === "youtube#playlistItem") ? ctx.currvid.snippet.resourceId.videoId : ctx.currvid.id
+  try{
+    likes = ctx.currvid.statistics.likeCount
+    views = ctx.currvid.statistics.viewCount
+  }
+  catch(error){
+    likes = 0
+    views = 0
+  }
   var len = likes.length;
   if(len>=3 && len<=6){
     likes = Math.round(likes /1000);
@@ -33,18 +43,24 @@ function Videoplay(props) {
     likes = Math.round(likes/100000)/10;
     likes = likes+"M";
   }
+  if(likes === 0){
+    likes = "NA"
+  }
+  if(views === 0){
+    views = "NA"
+  }
   return (
     <div className='video-play' style={lightcss}>
       <div className='left-part'>
         <iframe 
           className='if'
-          src={`https://www.youtube.com/embed/${ctx.currvid.id}`}
+          src={`https://www.youtube.com/embed/${id}`}
           width={'800'}
           height={'500'}
           frameBorder="0"
           allow="fullscreen"></iframe>
         <h2 style={lightcss}>{ctx.currvid.snippet.title}</h2>
-        <h4 style={lightcss}>{ctx.currvid.statistics.viewCount} Views</h4>
+        <h4 style={lightcss}>{views} Views</h4>
         <div className='info-video'>
           <p style={lightcss}>{ctx.currvid.snippet.channelTitle}</p>
           <button style={boxcss} className='like'><ThumbUpAltIcon></ThumbUpAltIcon> {likes}</button>

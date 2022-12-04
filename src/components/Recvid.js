@@ -5,8 +5,9 @@ import GlobalObj from './store/global-objects'
 function Recvid(props) {
   const ctx = useContext(GlobalObj)
   const [recvids, setRecVid] = useState([])
+  var id = (ctx.currvid.kind === "youtube#playlistItem") ? ctx.currvid.snippet.resourceId.videoId : ctx.currvid.id
   useEffect(() => {
-    fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${ctx.currvid.id}&type=video&key=${ctx.apikey}&maxResults=20`)
+    fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${id}&type=video&key=${ctx.apikey}&maxResults=20`)
       .then(response => response.json())
       .then(data => setRecVid(data.items))
   }, [])

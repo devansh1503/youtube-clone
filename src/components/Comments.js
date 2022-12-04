@@ -8,9 +8,9 @@ import GlobalObj from './store/global-objects'
 function Comments(props) {
     const ctx = useContext(GlobalObj)
     const[comments, setComments] = useState([])
-    var vidid = ctx.currvid.id
+    var id = (ctx.currvid.kind === "youtube#playlistItem") ? ctx.currvid.snippet.resourceId.videoId : ctx.currvid.id
     useEffect(() => {
-        fetch(`https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${ctx.currvid.id}&key=${ctx.apikey}`)
+        fetch(`https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${id}&key=${ctx.apikey}`)
             .then(response => response.json())
             .then(data => setComments(data.items))
     }, [ctx.currvid.id])

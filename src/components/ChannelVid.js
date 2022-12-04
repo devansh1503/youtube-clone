@@ -6,7 +6,7 @@ import GlobalObj from './store/global-objects'
 function ChannelVid(props) {
     const ctx = useContext(GlobalObj)
     const [videosdata, setVids] = useState([])
-    const url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${props.id}&key=${ctx.apikey}&maxResults=20`
+    const url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${props.id}&key=${ctx.apikey}&maxResults=100`
     useEffect(() => {
         fetch(url)
             .then(response => response.json())
