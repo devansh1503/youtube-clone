@@ -22,7 +22,8 @@ function Videoplay(props) {
   const ctx = useContext(GlobalObj)
   console.log(ctx.currvid)
   window.scrollTo(0, 0)
-  var likes = ctx.currvid.statistics.likeCount;
+
+  var likes = ctx.currvid.statistics.likeCount
   var len = likes.length;
   if(len>=3 && len<=6){
     likes = Math.round(likes /1000);

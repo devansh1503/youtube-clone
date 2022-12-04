@@ -273,6 +273,7 @@ code {
 }
 .addremovebtn{
   width: 100%;
+  display: flex;
 }
 .addremovebtn *{
   width: 45%;
@@ -356,9 +357,6 @@ code {
   color: white;
   align-items: center;
 }
-.channel-details *{
-  margin: 20px;
-}
 .channel-details img{
   width: 10%;
   height: 10%;
@@ -367,9 +365,6 @@ code {
 .channel-vids{
   display: flex;
   flex-wrap: wrap;
-}
-.channel-vids *{
-  margin: 20px;
 }
 /* COMMENT */
 .comm-tile{
@@ -445,6 +440,10 @@ code {
   width: 70%;
   font-size: 24px;
 }
+.video{
+  border-radius: 25px;
+}
+
 @media only screen and (max-height: 500px){
   .if{
     position:fixed;

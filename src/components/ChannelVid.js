@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Cardtile from './Cardtile'
+import Channelvidtile from './Channelvidtile'
 import GlobalObj from './store/global-objects'
 
 function ChannelVid(props) {
     const ctx = useContext(GlobalObj)
     const [videosdata, setVids] = useState([])
-    const url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${props.id}&key=${ctx.apikey} maxResults=20`
+    const url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${props.id}&key=${ctx.apikey}&maxResults=20`
     useEffect(() => {
         fetch(url)
             .then(response => response.json())
@@ -14,12 +15,13 @@ function ChannelVid(props) {
     return (
         <div className='channel-vids'>
             {videosdata.map((element) => {
-                return <Cardtile
+                return <Channelvidtile
                     img={element.snippet.thumbnails.high.url}
                     title={element.snippet.title}
                     channel={element.snippet.channelTitle}
                     stats=""
-                    eledata={element}></Cardtile>
+                    eledata={element}
+                    ltm={props.ltm}></Channelvidtile>
             })}
         </div>
     )
